@@ -1,0 +1,206 @@
+/*body 开始*/
+.body{
+    height: 460px;
+    background: #31333e;
+}
+.container{
+    height: 460px;
+    position: relative;
+    overflow: hidden;
+}
+.img-box{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 4025px;
+    height: 460px;
+}
+.container .prev{
+    width: 50px;
+    height: 100px;
+    position: absolute;
+    left: 0;
+    top: 181px;
+    background: url("../img/icon.png") -118px -10px no-repeat;
+    cursor: pointer;
+}
+
+.container .next{
+    width: 50px;
+    height: 100px;
+    position: absolute;
+    right: 0;
+    top: 181px;
+    background: url("../img/icon.png") -174px -10px no-repeat;
+    cursor: pointer;
+}
+
+/*body 结束*/
+/*detail 开始*/
+.main{
+    height: 492px;
+}
+.main li{
+    float: left;
+    width: 334px;
+    height: 492px;
+    text-align: center;
+    position: relative;
+}
+.main li img{
+    position: absolute;
+    top: 140px;
+    left: 110px;
+}
+.main-title{
+    position: absolute;
+    top: 85px;
+    left: 110px;
+    color: #626262;
+    font-size: 20px;
+}
+.main li p{
+    font-size: 14px;
+    position: absolute;
+    top: 270px;
+    text-align: center;
+    margin: 0 15px;
+    color: #2a2e39;
+}
+.main-more{
+    position: absolute;
+    top: 390px;
+    left: 120px;
+    color: #00aeff;
+    font-size: 15px;
+}
+/*detail 结束*/
+/*works 开始*/
+.works{
+    height: 500px;
+    background: #e2e7ed;
+}
+.work-title{
+    height: 72px;
+    font-size: 20px;
+    color: #626262;
+    line-height: 72px;
+}
+.works li{
+    width: 250px;
+    height: 200px;
+    float: left;
+}
+/*works 结束*/
+/*clients 开始*/
+.clients{
+    height: 154px;
+}
+.client-title{
+    height: 72px;
+    font-size: 20px;
+    color: #626262;
+    line-height: 72px;
+}
+.client-slide{
+    height: 72px;
+    position: relative;
+    overflow: hidden;
+}
+.client-img{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 2000px;
+    height: 72px;
+}
+.client-img li{
+    width: 250px;
+    height: 72px;
+    float: left;
+    padding-top: 10px;
+    overflow: hidden;
+}
+.client-prev{
+    width: 50px;
+    height: 72px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background: url("../img/icon.png") 1px -57px no-repeat ;
+    cursor: pointer;
+}
+.client-next{
+    width: 50px;
+    height: 72px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background: url("../img/icon.png") -28px -57px no-repeat ;
+    cursor: pointer;
+}
+/*clients 结束*/
+/*footer 开始*/
+.footer{
+    height: 176px;
+    background: #31333e;
+    position: relative;
+}
+.end{
+    position: relative;
+}
+.end-img{
+    position: absolute;
+    right: 0px;
+    top: 25px;
+    width: 336px;
+    height: 176px;
+    background: #00aeff;
+    background: url("../img/icon.png") 35px -114px no-repeat;
+}
+.footer-nav{
+    float: left;
+    margin-top: 49px;
+}
+.footer-nav li{
+    float: left;
+    padding: 0 24px 0 25px;
+    position: relative;
+}
+.footer-nav li::after{
+    content: '';
+    height: 14px;
+    width: 1px;
+    background: #e2e7ed;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -7px;
+}
+.footer-nav .no::after{
+    content:'' ;
+    height: 0px;
+    width: 0px;
+}
+.footer-nav .no-padding{
+    padding-left: 0px;
+}
+.footer-nav a{
+    color: #e2e7ed;
+    font-size: 15px;
+}
+.footer span{
+    color: #e2e7ed;
+    font-size: 15px;
+    position: absolute;
+    left: 0px;
+    top: 85px;
+}
+.footer p{
+    color: #e2e7ed;
+    font-size: 15px;
+    position: absolute;
+    left: 0px;
+    top: 140px;
+}
+/*footer 结束*/
