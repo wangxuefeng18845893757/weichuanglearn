@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="jquery.mobile.icons.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .img{
+            float: left;
+            width: 25%;
+            border-right: 5px solid #000;
+            border-bottom: 5px solid #000;
+            box-sizing: border-box;
+        }
+        #img-box{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #000 url("img/1.jpg") center center no-repeat;
+            background-size: contain;
+            display: none;
+        }
+    </style>
+    <!--<style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+        }
+        #container{
+            width: 100%;
+            overflow: hidden;
+            background: #000 ;
+        }
+      /* .img{
+            float: left;
+            width: 25%;
+            height: 0;
+            padding-top: 25%;
+            background-size: cover;
+           box-sizing: border-box;
+        }*/
+        .bimg{
+            display: none;
+            width: 100%;
+            height: 66%;
+        }
+        .simg{
+            width: 23%;
+            margin-right: 2%;
+            margin-bottom: 2%;
+        }
+        .simg.active{
+            display: none;
+        }
+        .bimg.selected{
+            display: block;
+            margin-top: 42%;
+            margin-bottom: 42%;
+        }
+    </style>-->
+</head>
+<body>
+    <div id="container">
+    </div>
+    <div id="img-box">
+
+    </div>
+
+    <script src="jquery-1.12.4.js"></script>
+    <script src="jquery.mobile-1.4.5.min.js"></script>
+    <script>
+        var iNow=0;
+        var html='';
+        for (i=0;i<24;i++){
+            html +="<img class='img' src='img/thumbs/"+(i+1)+".jpg'/>"
+        }
+        $('#container').append(html);
+        $('.img').on('tap',function (e) {
+            var idx=$(this).index()
+            iNow = idx
+            $('#container').hide();
+            $('#img-box').show().css('background-image','url(img/'+(idx+1)+'.jpg)');
+            e.preventDefault();
+        })
+        $('#img-box').on('tap',function (e) {
+            $('#container').show();
+            $('#img-box').hide();
+            e.preventDefault();
+        })
+        $('#img-box').on('swipeleft',function () {
+            iNow++;
+            if(iNow == $('.img').length){
+                iNow=0;
+            }
+            $('#img-box').css('background-image','url(img/'+(iNow+1)+'.jpg)');
+        })
+        $('#img-box').on('swiperight',function () {
+            iNow--;
+            if(iNow == -1){
+                iNow=$('.img').length-1;
+            }
+            $('#img-box').css('background-image','url(img/'+(iNow+1)+'.jpg)');
+        })
+    </script>
+    <!--<script>
+        var oContainer=document.getElementById('container');
+        var num=0;
+        for (i=0;i<24;i++){
+            var oImg=new Image();
+            oImg.onload=function () {
+                num++;
+                if(num==48){
+                    lodeSuccess()
+                }
+            }
+            oImg.src="img/thumbs/"+(i+1)+".jpg";
+        }
+        for (i=0;i<24;i++){
+            var oImg=new Image();
+            oImg.onload=function () {
+                num++;
+                if(num==48){
+                    lodeSuccess()
+                }
+            }
+            oImg.src="img/"+(i+1)+".jpg";
+        }
+       function lodeSuccess() {
+           var count = 0;
+           for (i = 0; i < 24; i++) {
+                   var oSimg = document.createElement('img');
+                   oSimg.className = 'simg';
+                   count++;
+                   oSimg.src = 'img/thumbs/' + count + '.jpg';
+                   $(oContainer).append(oSimg);
+                    var oBimg = document.createElement('img');
+                   oBimg.className = 'bimg';
+                   oBimg.src = 'img/' + count + '.jpg';
+                   $(oContainer).append(oBimg);
+               }
+           /*for (i = 0; i < 24; i++) {
+               var oBimg = document.createElement('img');
+               oBimg.className = 'bimg';
+               count1++;
+               oBimg.src = 'img/' + count1 + '.jpg';
+               $(oContainer).append(oBimg);
+           }*/
+           var idx=0;
+           var s = $('.simg');
+         /*  var s=document.getElementsByClassName('simg'); var s = $('.simg');*/
+           var b = $('.bimg');
+          /* var b=document.getElementsByClassName('bimg');*/
+           console.log(s);
+           for (i=0;i<24;i++){
+               /*console.log($(s[i]));*/
+               $(s[i]).on('tap',function () {
+
+                   idx=$(this).index('.simg');//index找在所有兄弟中的索引
+                   console.log(idx);
+                   for (j=0;j<24;j++){
+                       $(s[j]).addClass('active');
+                   }
+                   $(b[idx]).addClass('selected');
+               });
+           }
+           $(oContainer).on('swipeleft',function () {
+               console.log(idx);
+               $(b[idx]).removeClass('selected');
+              // idx++;
+               if(idx==23){
+                   idx=0;
+                   $(b[idx]).addClass('selected');
+               }
+               else
+               {
+                   $(b[++idx]).addClass('selected');
+               }
+
+           });
+           $(oContainer).on('swiperight',function () {
+               console.log(idx);
+               $(b[idx]).removeClass('selected');
+               // idx++;
+               if(idx==0){
+                   idx=23;
+                   $(b[idx]).addClass('selected');
+               }
+               else
+               {
+                   $(b[&#45;&#45;idx]).addClass('selected');
+               }
+
+           });
+       }
+    </script>-->
+</body>
+</html>
